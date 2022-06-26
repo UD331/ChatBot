@@ -1,14 +1,13 @@
 import requests
 
-headers = {
-    'user-agent': 'Udayan Pandey'
-}
+def lastfm_get(payload):
+    # define headers and URL
+    headers = {'user-agent': 'Udayan Pandey'}
+    url = 'https://ws.audioscrobbler.com/2.0/'
 
-payload = {
-    'api_key': '7921b4b4bfa5aa3d685c70de8a3eefc6',
-    'method': 'chart.gettopartists',
-    'format': 'json'
-}
+    # Add API key and format to the payload
+    payload['api_key'] = ''
+    payload['format'] = 'json'
 
-r = requests.get('https://ws.audioscrobbler.com/2.0/', headers=headers, params=payload)
-print(r.status_code)
+    response = requests.get(url, headers=headers, params=payload)
+    return response
