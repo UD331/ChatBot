@@ -23,3 +23,4 @@ def jprint(obj):
     print(text)
 
 jprint(r.json())
+jprint(r.json()['artists']['@attr'])
