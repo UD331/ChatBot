@@ -1,4 +1,5 @@
 import requests
+import json
 
 def lastfm_get(payload):
     # define headers and URL
@@ -12,7 +13,6 @@ def lastfm_get(payload):
     response = requests.get(url, headers=headers, params=payload)
     return response
 
-import json
 
 r = lastfm_get({'method': 'chart.gettopartists'})
 
@@ -64,3 +64,10 @@ while page <= total_pages:
 
     # increment the page number
     page += 1
+
+r = lastfm_get({
+    'method': 'artist.getTopTags',
+    'artist':  'Lana Del Rey'
+})
+
+jprint(r.json())
