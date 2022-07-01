@@ -2,7 +2,6 @@ import requests
 import json
 
 def lastfm_get(payload):
-    # define headers and URL
     headers = {'user-agent': 'Udayan Pandey'}
     url = 'https://ws.audioscrobbler.com/2.0/'
 
