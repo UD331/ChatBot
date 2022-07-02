@@ -61,7 +61,7 @@ while page <= total_pages:
     if not getattr(response, 'from_cache', False):
         time.sleep(0.25)
 
-    # increment the page number
+    
     page += 1
 
 r = lastfm_get({
