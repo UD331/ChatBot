@@ -2,9 +2,11 @@ import requests
 import json
 
 def lastfm_get(payload):
+    # define headers and URL
     headers = {'user-agent': 'Udayan Pandey'}
     url = 'https://ws.audioscrobbler.com/2.0/'
-    
+
+    # Add API key and format to the payload
     payload['api_key'] = '7921b4b4bfa5aa3d685c70de8a3eefc6'
     payload['format'] = 'json'
 
@@ -20,8 +22,8 @@ def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
-jprint(r.json())
-jprint(r.json()['artists']['@attr'])
+#jprint(r.json())
+#jprint(r.json()['artists']['@attr'])
 
 import time
 
@@ -60,7 +62,7 @@ while page <= total_pages:
     if not getattr(response, 'from_cache', False):
         time.sleep(0.25)
 
-    
+    # increment the page number
     page += 1
 
 r = lastfm_get({
@@ -68,4 +70,8 @@ r = lastfm_get({
     'artist':  'Lana Del Rey'
 })
 
+
+r = lastfm_get({
+    'method': 'album.search',
+})
 jprint(r.json())
