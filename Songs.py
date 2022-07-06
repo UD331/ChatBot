@@ -18,8 +18,14 @@ def lastfm_get(payload):
 def jprint(obj):
     # create a formatted string of the Python JSON object
     text = json.dumps(obj, sort_keys=True, indent=4)
-    print(text)
+    return text
 
 r = lastfm_get({'method': 'tag.getTopTracks',
                 'tag': 'happy'})
-jprint(r.json())
+text = jprint(r.json()['tracks']['track'])
+
+t = text.split("url")
+n = 2
+while(n < len(t)):
+    print(t[n])
+    n+=2
