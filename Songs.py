@@ -26,6 +26,10 @@ text = jprint(r.json()['tracks']['track'])
 
 t = text.split("url")
 n = 2
+l = list()
 while(n < len(t)):
-    print(t[n])
+    b = t[n].split('"')
+    l.append(b[2])
     n+=2
+
+print(l)
