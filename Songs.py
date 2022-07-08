@@ -1,6 +1,6 @@
 import requests
 import json
-
+import random
 
 def lastfm_get(payload):
     # define headers and URL
@@ -32,4 +32,4 @@ while(n < len(t)):
     l.append(b[2])
     n+=2
 
-print(l)
+print(random.sample(l,1))
