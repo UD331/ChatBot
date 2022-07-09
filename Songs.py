@@ -24,12 +24,17 @@ r = lastfm_get({'method': 'tag.getTopTracks',
                 'tag': 'happy'})
 text = jprint(r.json()['tracks']['track'])
 
-t = text.split("url")
-n = 2
-l = list()
-while(n < len(t)):
-    b = t[n].split('"')
-    l.append(b[2])
-    n+=2
+def getSong(text):
+    t = text.split("url")
+    n = 2
+    l = list()
+    while(n < len(t)):
+        b = t[n].split('"')
+        l.append(b[2])
+        n+=2
 
-print(random.sample(l,1))
+    m = str(random.sample(l,1))
+    m = m.replace('[', '').replace(']', '').replace("'", '')
+    print(m)
+
+getSong(text)
