@@ -11,5 +11,15 @@ response = requests.request("POST", url, headers=headers, data = payload)
 
 status_code = response.status_code
 result = response.text
-print(result.split())
-print(result)
+result = result.replace('"', '')
+result = result.replace('{', '')
+result = result.replace('}', '')
+result = result.replace(',', '')
+r = result.split()
+c = 0
+d = dict()
+while(c < 10):
+  d[r[c]] = float(r[c+1])
+  c += 2
+print(d)
+
