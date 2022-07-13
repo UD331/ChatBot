@@ -1,25 +1,26 @@
 import requests
 
-url = "https://api.apilayer.com/text_to_emotion"
+def interpreter(load):
+  url = "https://api.apilayer.com/text_to_emotion"
 
-payload = "Hey it's me Mario!".encode("utf-8")
-headers= {
-  "apikey": "zJuUtZiohldxWr07OrtL3ZCXwgon3YIE"
-}
+  payload = load.encode("utf-8")
+  headers= {
+    "apikey": "zJuUtZiohldxWr07OrtL3ZCXwgon3YIE"
+  }
 
-response = requests.request("POST", url, headers=headers, data = payload)
+  response = requests.request("POST", url, headers=headers, data = payload)
 
-status_code = response.status_code
-result = response.text
-result = result.replace('"', '')
-result = result.replace('{', '')
-result = result.replace('}', '')
-result = result.replace(',', '')
-r = result.split()
-c = 0
-d = dict()
-while(c < 10):
-  d[r[c]] = float(r[c+1])
-  c += 2
-print(d)
+  status_code = response.status_code
+  result = response.text
+  result = result.replace('"', '')
+  result = result.replace('{', '')
+  result = result.replace('}', '')
+  result = result.replace(',', '')
+  r = result.split()
+  c = 0
+  d = dict()
+  while(c < 10):
+    d[r[c]] = float(r[c+1])
+    c += 2
+  print(d)
 
