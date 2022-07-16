@@ -10,7 +10,6 @@ def interpreter(load):
 
   response = requests.request("POST", url, headers=headers, data = payload)
 
-  status_code = response.status_code
   result = response.text
   result = result.replace('"', '')
   result = result.replace('{', '')
@@ -22,5 +21,5 @@ def interpreter(load):
   while(c < 10):
     d[r[c]] = float(r[c+1])
     c += 2
-  print(d)
+  return(d)
 
