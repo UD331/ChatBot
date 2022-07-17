@@ -2,6 +2,10 @@ import requests
 import json
 import random
 
+def get_payload(text):
+    return {'method': 'tag.getTopTracks',
+                'tag': text}
+
 def lastfm_get(payload):
     # define headers and URL
     headers = {'user-agent': 'Udayan Pandey'}
@@ -20,9 +24,6 @@ def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     return text
 
-r = lastfm_get({'method': 'tag.getTopTracks',
-                'tag': 'happy'})
-text = jprint(r.json()['tracks']['track'])
 
 def getSong(text):
     t = text.split("url")
@@ -37,4 +38,3 @@ def getSong(text):
     m = m.replace('[', '').replace(']', '').replace("'", '')
     print(m)
 
-getSong(text)
