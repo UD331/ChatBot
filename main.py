@@ -6,7 +6,7 @@ s = input("Please enter words")
 analysis = Word_Analysis.interpreter(s)
 score = 2
 feeling = ""
-#Select highest score
+
 for i in analysis:
     if analysis.get(i) < score:
         score = analysis.get(i)
