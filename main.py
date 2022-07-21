@@ -18,6 +18,7 @@ print(payload)
 response = Songs.lastfm_get(payload)
 print(response)
 obj = Songs.jprint(response)
+print(obj)
 Songs.getSong(obj)
 
 
