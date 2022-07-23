@@ -16,8 +16,7 @@ for i in analysis:
 payload = Songs.get_payload(feeling)
 print(payload)
 response = Songs.lastfm_get(payload)
-print(response)
-obj = Songs.jprint(response)
+obj = Songs.jprint(response.json())
 print(obj)
 Songs.getSong(obj)
 
