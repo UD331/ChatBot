@@ -13,7 +13,19 @@ for i in analysis:
         score = analysis.get(i)
         feeling = i
 
-payload = Songs.get_payload(feeling)
+genre = ''
+if feeling == 'Happy':
+    genre = 'Jazz'
+elif feeling == 'Angry':
+    genre = 'Punk'
+elif feeling == 'Surprise':
+    genre = 'Pop'
+elif feeling == 'Sad':
+    genre = 'Blues'
+elif feeling == 'Fear':
+    genre = 'Rock'
+
+payload = Songs.get_payload(genre)
 print(payload)
 response = Songs.lastfm_get(payload)
 obj = Songs.jprint(response.json())
