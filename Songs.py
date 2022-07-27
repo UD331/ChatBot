@@ -11,7 +11,6 @@ def lastfm_get(payload):
     headers = {'user-agent': 'Udayan Pandey'}
     url = 'https://ws.audioscrobbler.com/2.0/'
 
-    # Add API key and format to the payload
     payload['api_key'] = '7921b4b4bfa5aa3d685c70de8a3eefc6'
     payload['format'] = 'json'
 
@@ -33,8 +32,7 @@ def getSong(text):
         b = t[n].split('"')
         l.append(b[2])
         n+=2
-
+    print(l)
     m = str(random.sample(l,1))
     m = m.replace('[', '').replace(']', '').replace("'", '')
     print(m)
-
