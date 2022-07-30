@@ -26,7 +26,6 @@ elif feeling == 'Fear':
     genre = 'Rock'
 
 payload = Songs.get_payload(genre)
-print(payload)
 response = Songs.lastfm_get(payload)
 obj = Songs.jprint(response.json())
 print(obj)
