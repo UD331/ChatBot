@@ -31,7 +31,5 @@ def getSong(text):
         b = t[n].split('"')
         l.append(b[2])
         n+=2
-    print(l)
     m = str(random.sample(l,1))
     m = m.replace('[', '').replace(']', '').replace("'", '')
-    print(m)
