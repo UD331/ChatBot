@@ -5,7 +5,7 @@ def interpreter(load):
 
   payload = load.encode("utf-8")
   headers= {
-    "apikey": "zJuUtZiohldxWr07OrtL3ZCXwgon3YIE"
+    "apikey": "Key"
   }
 
   response = requests.request("POST", url, headers=headers, data = payload)
